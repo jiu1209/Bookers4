@@ -1,6 +1,7 @@
 <div class="container"> 
       <div class="row"> 
 <div class="text-center">
+	<div class="col-md-12">
 <h2>Editing book</h2>
 
 <%= form_for(@book) do |f| %>
@@ -11,11 +12,13 @@
     <h4>Opinion</h4>
     <%= f.text_area :body %>
  
-    <br><%= f.submit 'Update Book' %></br>
+    <br><%= f.submit 'Update Book', class: "btn btn-primary" %></br>
     <br><%= link_to "Show", book_path %>
         <%= link_to "Back", books_path %></br>
+        <p>CopyRight Infratop.inc</p>
  
 <% end %>
+</div>
 </div>
 </div>
 </div>
