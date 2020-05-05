@@ -1,7 +1,6 @@
 class BooksController < ApplicationController
 def edit
     @book =Book.find(params[:id])
-    @books = Book.all
 end
 
 def update
@@ -12,7 +11,7 @@ end
 
 def show	
 	@book =Book.find(params[:id])
-	@books = Book.all
+	@books = Book.page(params[:page])
 	@users = User.all
 	@user =User.new
 end

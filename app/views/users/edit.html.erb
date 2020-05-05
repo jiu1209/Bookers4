@@ -1,0 +1,20 @@
+<div class="c">
+<h2>User info</h2>
+
+<%= form_for(@user) do |f| %>
+ 
+    <h4>Name</h4>
+    <%= f.text_field :name %>
+
+    <h4>Image</h4>
+    <%= f.attachment_field :profile_image %>
+ 
+    <h4>introduction</h4>
+    <%= f.text_area :introduction %>
+ 
+    <br><%= f.submit 'Update User', class: "btn btn-primary" %></br>
+      <div class="top3">
+        <p>CopyRight Infratop.inc</p>
+      </div>
+<% end %>
+</div>

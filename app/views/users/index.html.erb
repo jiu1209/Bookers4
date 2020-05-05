@@ -5,6 +5,9 @@
               <h2>User info</h2>
       		    <h4>name : <%= @user.name %></h4>
       		    <h4>introduction : <%= @user.introduction %></h4>
+                 <button type="button" class="btnbtn-default btn-sm">
+                 <span class="glyphicon glyphicon-wrench"></span>
+               Wrench</button>
       		 </div>
             <div class="top">
               <h2>New book</h2>
@@ -34,7 +37,7 @@
                 <tbody>
 		       <% @users.each do |user| %>
 	             <tr>
-	    	       <td><%= user.profile_image_id %></td>
+	    	       <td><%= attachment_image_tag @user, :profile_image %></td>
 	    	       <td><%= user.name %></td>
 	    	       <td><%= link_to "show", user_path(user.id) %></td>
                  </tr>
@@ -44,3 +47,6 @@
               </div>
            </div>
        </div>
+        <div class="top2">
+       <p>CopyRight Infratop.inc</p>
+     </div>
