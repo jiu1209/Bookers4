@@ -5,15 +5,17 @@ end
 
 def update
 	@book =Book.new(book_params)
+	@book.user_id = current_user.id
+	flash[:complete] = "You have creatad book successfully." 
     @book.save
-	redirect_to book_path
+	redirect_to book_path(@book.id)
 end
 
 def show	
 	@book =Book.find(params[:id])
 	@books = Book.page(params[:page])
 	@users = User.all
-	@user =User.new
+	@user = current_user
 end
 
 def destroy
@@ -23,17 +25,17 @@ def destroy
 end
 
 def index
+	@user = current_user
 	@book = Book.new
 	@books = Book.all
-	@user =User.new
-	@users = User.all
 end
 
 def create
 	@book =Book.new(book_params)
 	@book.user_id = current_user.id
     @book.save
-	redirect_to book_path(@book.id)
+    flash[:complete] = "You have creatad book successfully." 
+	redirect_to book_path(@book.id)	
 end
 
 private
