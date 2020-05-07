@@ -1,6 +1,7 @@
 <div class="c">
 
 <%= form_for(@user, url: user_path) do |f| %>
+<%= render 'layouts/usererror_messages', model: f.object %>
 
      <h2>User info</h2> 
 
