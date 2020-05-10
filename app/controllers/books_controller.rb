@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+before_action :authenticate_user!
+before_action :login_check, only: [:edit]
+	
 def edit
     @book =Book.find(params[:id]) 
 end
@@ -52,6 +55,11 @@ end
 private
 def book_params
     params.require(:book).permit(:title, :body)
+end
+def login_check
+ 	unless user_signed_in?
+ 	redirect_to user_path
+  end
 end
 end
 

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	before_action :authenticate_user!
+ before_action :login_check, only: [:edit]
 def index
 	@book=Book.new
     @users =User.all
@@ -38,4 +40,13 @@ private
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image )
   end
-end
+
+ def login_check
+       @user = User.find(params[:id])
+    if @user.id != current_user.id
+       redirect_to user_path(current_user)
+
+       
+      end
+    end
+ end

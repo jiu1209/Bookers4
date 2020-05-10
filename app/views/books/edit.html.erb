@@ -3,10 +3,10 @@
 <div class="text-center">
 	<div class="col-md-12">
         <div class="ded">
-<h2>Editing book</h2>
  
 <%= form_for(@book) do |f| %>
 <%= render 'layouts/bookerror_massages', model: f.object %>
+<h2>Editing Book</h2>
 
     <h4>title</h4>
     <%= f.text_field :title %>
