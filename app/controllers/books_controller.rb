@@ -3,7 +3,11 @@ before_action :authenticate_user!
 before_action :login_check, only: [:edit]
 	
 def edit
-    @book =Book.find(params[:id]) 
+  if  @book = current_user.books.find_by(id: params[:id])
+
+  else
+  	 redirect_to books_path
+ end
 end
 
 def update
@@ -62,4 +66,3 @@ def login_check
   end
 end
 end
-
