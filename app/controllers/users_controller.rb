@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 	before_action :authenticate_user!
  before_action :login_check, only: [:edit]
 def index
-	@book=Book.new
+	  @book=Book.new
     @users =User.all
     @user = current_user
 end
