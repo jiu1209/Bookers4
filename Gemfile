@@ -68,4 +68,8 @@ gem "refile-mini_magick"
 gem 'kaminari','~> 1.1.1'
 gem 'carrierwave'
 gem "jquery-rails"
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
 
